@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import React from "react";
 
 //define the mock data
@@ -78,23 +78,30 @@ function App(props) {
     )
 
     const arrayBattery = BatteryList.map(item =>
+      <div>
+      <h1>List of tasks for the {item.name} Battery</h1>
+      <h2>Battery id: {item.index}</h2>
       <li key={item.name}>
-        <p>{item.name}</p>
-      </li>)
+        <h2>Script Names</h2>  
+        <ol>{item.list.map(task => <li>{task}</li>)}</ol>
+      </li>
+      <li>
+      <h2>Parameters</h2>  
+        <ol>{item.ParameterLists.map(params => <li>{params}</li>)}</ol>
+      </li>
+      <li>
+      <h2>Task Names</h2>  
+        <ol>{item.ButtonName.map(button => <li>{button}</li>)}</ol>
+      </li>
+      </div>
+      )
+
 
   return (
     <div>
+    
     <div className="container">
-      <div>
-        <h1>Render List/Array of Items</h1>
-      </div>
-      {/* returning arrayDataItems wrapped in <ul> */}
-      <ul>{arrayDataItems}</ul>
-    </div>
-    <div className="container">
-      <div>
-        <h1>Render List/Array of Items</h1>
-      </div>
+    
       {/* returning arrayDataItems wrapped in <ul> */}
       <ul>{arrayBattery}</ul>
     </div>
